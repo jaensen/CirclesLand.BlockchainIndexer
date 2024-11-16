@@ -409,11 +409,12 @@ namespace CirclesLand.BlockchainIndexer
                     {
                         SafeOwnershipChecksTotal.Inc();
 
-                        var contract = roundContext.Web3!.Eth.GetContract(
-                            GnosisSafeABI.Json, signup.User);
-                        var function = contract.GetFunction("getOwners");
-                        var owners = await function.CallAsync<List<string>>();
-                        signup.Owners = owners?.Select(o => o.ToLower()).ToArray() ?? Array.Empty<string>();
+                        // var contract = roundContext.Web3!.Eth.GetContract(
+                        //     GnosisSafeABI.Json, signup.User);
+                        // var function = contract.GetFunction("getOwners");
+                        // var owners = await function.CallAsync<List<string>>();
+                        // signup.Owners = owners?.Select(o => o.ToLower()).ToArray() ?? Array.Empty<string>();
+                        signup.Owners = [];
                     }
 
                     var organisationSignups = extractedDetails
